@@ -10,20 +10,38 @@
 	<meta name="Resource-type" content="Document" />
 
 
-	<link rel="stylesheet" type="text/css" href="dist/fullpage.css" />
-	<link rel="stylesheet" type="text/css" href="dist/examples.css" />
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/fullpage.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
 
 	/* Style for our header texts
 	* --------------------------------------- */
 	h1{
-		font-size: 5em;
+		font-size: 3em;
 		font-family: arial,helvetica;
 		color: #fff;
-		margin:0;
+		font-weight: bold;
+		margin-top: 20px;
+		margin-right: 0;
+		margin-bottom: 0;
+		margin-left: 0;
+		padding:0;
 	}
 	.intro p{
-		color: #fff;
+		color: #000;
+		font-weight: 500;
+		margin-bottom: 25px;
+	}
+	a {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	#profile-img {
+		width: 250px;
+		height: 250px;
+		object-fit: cover;
+		object-position: 100% 0;
 	}
 
 	/* Centered texts in each section
@@ -32,10 +50,39 @@
 		text-align:center;
 	}
 
-	/* Bottom menu
+
+
+	/* Defining each sectino background and styles
 	* --------------------------------------- */
-	#infoMenu li a {
-		color: #fff;
+	#section0{
+		background: -webkit-gradient(linear, top left, bottom left, from(#90CAF9), to(#42A5F5));
+		background: -webkit-linear-gradient(#90CAF9, #42A5F5);
+		background: linear-gradient(#90CAF9,#42A5F5);
+	}
+
+	#section2{
+		background: -webkit-gradient(linear, top left, bottom left, from(#1976D2), to(#0D47A1));
+		background: -webkit-linear-gradient(#1976D2, #0D47A1);
+		background: linear-gradient(#1976D2,#0D47A1);
+	}
+
+
+
+ 	/*Adding background for the slides
+	* --------------------------------------- */
+	#slide1{
+		background: -webkit-gradient(linear, top left, bottom left, from(#030303), to(#1976D2));
+		background: -webkit-linear-gradient(#42A5F5, #1976D2);
+		background: linear-gradient(#42A5F5,#1976D2);
+	}
+	#slide2{
+		background: -webkit-gradient(linear, top left, bottom left, from(#1E88E5), to(#1565C0));
+		background: -webkit-linear-gradient(#1E88E5, #1565C0);
+		background: linear-gradient(#1E88E5,#1565C0);
+	}
+
+	#fp-nav ul li a span, .fp-slidesNav ul li a span {
+		background: #dc3545;
 	}
 	</style>
 
@@ -46,67 +93,15 @@
 	<![endif]-->
 </head>
 <body>
-
-<select id="demosMenu">
-  <option selected>Choose Demo</option>
-  <option id="jquery-adapter">jQuery adapter</option>
-  <option id="active-slide">Active section and slide</option>
-  <option id="auto-height">Auto height</option>
-  <option id="autoplay-video-and-audio">Autoplay Video and Audio</option>
-  <option id="backgrounds">Background images</option>
-  <option id="backgrounds-fixed">Fixed fullscreen backgrounds</option>
-  <option id="background-video">Background video</option>
-  <option id="callbacks-v2-compatible">Callbacks version 2</option>
-  <option id="callbacks-v3">Callbacks version 3</option>
-  <option id="continuous-horizontal">Continuous horizontal</option>
-  <option id="continuous-vertical">Continuous vertical</option>
-  <option id="parallax">Parallax</option>
-  <option id="css3">CSS3</option>
-  <option id="drag-and-move">Drag And Move</option>
-  <option id="easing">Easing</option>
-  <option id="fading-effect">Fading Effect</option>
-  <option id="fixed-headers">Fixed headers</option>
-  <option id="gradient-backgrounds">Gradient backgrounds</option>
-  <option id="interlocked-slides">Interlocked Slides</option>
-  <option id="looping">Looping</option>
-  <option id="methods">Methods</option>
-  <option id="navigation-vertical">Vertical navigation dots</option>
-  <option id="navigation-horizontal">Horizontal navigation dots</option>
-  <option id="navigation-tooltips">Navigation tooltips</option>
-  <option id="no-anchor">No anchor links</option>
-  <option id="normal-scroll">Normal scrolling</option>
-  <option id="normalScrollElements">Normal scroll elements</option>
-  <option id="offset-sections">Offset sections</option>
-  <option id="one-section">One single section</option>
-  <option id="reset-sliders">Reset sliders</option>
-  <option id="responsive-auto-height">Responsive Auto Height</option>
-  <option id="responsive-height">Responsive Height</option>
-  <option id="responsive-width">Responsive Width</option>
-  <option id="responsive-slides">Responsive Slides</option>
-  <option id="scrollBar">Scroll bar enabled</option>
-  <option id="scroll-horizontally">Scroll horizontally</option>
-  <option id="scrollOverflow">Scroll inside sections and slides</option>
-  <option id="scrollOverflow-reset">ScrollOverflow Reset</option>
-  <option id="lazy-load">Lazy load</option>
-  <option id="scrolling-speed">Scrolling speed</option>
-  <option id="trigger-animations">Trigger animations</option>
-  <option id="vue-fullpage">Vue-fullpage component</option>
-</select>
-
-
 <div id="fullpage">
 	<div class="section fp-auto-height-responsive" id="section0">
 		<div class="intro">
-			<h1>Responsive auto-height</h1>
-			<p>On responsive mode, which will fire with less than 900px width as defined in `responsiveWidth`, this section will become bigger than the viewport as I'm using the class `fp-auto-height-responsive` on the section.</p>
-			<br>
-			<br>
-			<br>
-			<p>
-			Eu nec ferri molestie consequat, vel at alia dolore putant. Labore philosophia ut vix. In vis nostrud interesset appellantur, vis et tation feugiat scripserit. Te nec noster suavitate persecuti. Diceret erroribus cu vix, alii omnes ei sit. Sea an corrumpit patrioque, virtute accumsan nominavi et usu, ex mei dolore vocibus incorrupte. Duo ea saperet tacimates. Sed possim prodesset no, per novum putent doctus ea. Eu mea magna aliquip graecis, pri corpora officiis complectitur ei, lorem saepe consetetur his ad. Meis consulatu ei vis, an altera ocurreret interesset qui. Eu ponderum comprehensam his, case antiopam pri te. Mel ne partem consequat instructior. Ad dicunt malorum sea, ex qui omnes invenire gubergren. Ius cu autem aliquando, pri vide ornatus perpetua an, no has epicuri
-
-
-			</p>
+			<img class="rounded-circle" id="profile-img" src="dist/img/profile.jpg" alt="">
+			<h1>ACHMAD MUSYAFFA TAUFIQI</h1>
+			<p>JUNIOR WEB, DEKSTOP, MOBILE DEVELOPER</p>
+			<a class="btn btn-lg btn-outline-danger" href="#portfolio">VIEW PORTFOLIO</a>
+			<a class="btn btn-lg btn-outline-danger" href="#contactMe">ABOUT ME</a>
+			<a class="btn btn-lg btn-outline-danger" href="dist/resume/Resume_Achmad_Musyaffa_Taufiqi.pdf">DOWNLOAD RESUME</a>
 		</div>
 	</div>
 	<div class="section" id="section1">
@@ -123,21 +118,26 @@
 	</div>
 	<div class="section" id="section2">
 		<div class="intro">
-			<h1>Keep it simple!</h1>
+			<div class="row">
+				<div class="col">
+					aasd<i class="fas fa-comment"></i>
+				</div>
+				<div class="col">b</div>
+			</div>
 		</div>
 	</div>
 </div>
 
-<script type="text/javascript" src="dist/fullpage.js"></script>
-<script type="text/javascript" src="dist/examples.js"></script>
+<script type="text/javascript" src="dist/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="dist/js/fullpage.min.js"></script>
 
 <script type="text/javascript">
     var myFullpage = new fullpage('#fullpage', {
-        anchors: ['firstPage', 'secondPage', '3rdPage'],
-        sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+        anchors: ['preview', 'portfolio', 'contactMe'],
         navigation: true,
         navigationPosition: 'right',
-        navigationTooltips: ['First page', 'Second page', 'Third and last page'],
+        navigationTooltips: ['Preview page', 'Portfolio', 'Contact Me'],
         responsiveWidth: 900,
         afterResponsive: function(isResponsive){
 
